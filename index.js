@@ -54,41 +54,48 @@ client.connect(err => {
 })
 
   app.get('/',(req, res)=>{
-      res.send('Hello')
+      res.send('Working')
   })
+
   app.post('/addServices',(req, res)=>{
       const addedService = req.body
       customerServices.insertOne(addedService)
       
   })
+
   app.get('/allServices',(req, res)=>{
       services.find({})
       .toArray((err,documents)=>{
           res.send(documents)
       })
   })
+
   app.get('/totalServices',(req,res) => {
     customerServices.find({email:req.query.email})
     .toArray((err,documents)=>{
         res.send(documents)
     })
 })
+
  app.post('/reviews',(req, res)=>{
      const review = req.body
      reviews.insertOne(review)
  })
+
  app.get('/allReviews',(req, res)=>{
      reviews.find({})
      .toArray((err,documents)=>{
          res.send(documents)
      })
  })
+
  app.get('/adminServices',(req,res) => {
     customerServices.find({})
     .toArray((err,documents)=>{
         res.send(documents)
     })
 })
+
 app.patch('/update/:id',(req, res)=>{
     customerServices.updateOne({_id:ObjectId(req.params.id)},
     {
@@ -99,6 +106,7 @@ app.patch('/update/:id',(req, res)=>{
         
     })
 })
+
 app.post('/isAdmin',(req, res)=>{
   const email = req.body.email
   admin.find({email:email})
@@ -106,12 +114,11 @@ app.post('/isAdmin',(req, res)=>{
       res.send(documents.length>0)
   })
 })
+
 app.post('/adminList',(req, res)=>{
     const adminEmail = req.body
     admin.insertOne(adminEmail)
 })
 });
-
-
 
 app.listen(process.env.PORT || port)
