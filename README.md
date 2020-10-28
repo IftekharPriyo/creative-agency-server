@@ -18,7 +18,11 @@ Technology Used
 Features
 ------
 - User Login/SignUp 
-
+- Users can order services
+- Users can leave reviews on services
+- Restricted admin access
+- Progress signal on purchasing services
+- Admin can add new services
 
 
 Run Locally
