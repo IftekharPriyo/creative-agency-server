@@ -17,7 +17,7 @@ Technology Used
 
 Features
 ------
-..*User Login/SignUp 
+- User Login/SignUp 
 
 
 
